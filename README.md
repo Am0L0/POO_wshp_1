@@ -5,5 +5,10 @@
 
 Cours sur les `class`.
 
-## 2-Part 1
+## 2-part_1
 
+Partie 1 du workshop.
+
+## 3-part_2
+
+Partie 2 du workshop.
