@@ -22,11 +22,13 @@ class Date{
                         j %= 28;
                         m++;
                     }
+                    break;
                 case 1: case 3: case 5: case 7: case 8: case 10:
                     if (j > 31){
                         j %= 31;
                         m++;
                     }
+                    break;
                 case 12:
                     if (j > 31){
                         j %= 31;
@@ -34,6 +36,7 @@ class Date{
                         m %= 12;
                         a++;
                     }
+                    break;
             }
         }
 };
@@ -51,4 +54,6 @@ int main(){
     d.afficher();
     d.incr();
     d.afficher();
+    
+    return 0;
 }
