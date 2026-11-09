@@ -31,7 +31,14 @@ class Creature{
             )ART" << std::endl;
             std::cout << "PV : " << pv << ", PA : " << pa << ", NIV : " << niv << "\033[0m" << std::endl;
         }else {
-            std::cout << "La creature est mort" << std::endl;
+            std::cout << "\033[31m" << R"ART(
+    .-"""-.
+   / x   x \
+  |   ___   |
+  |         |
+   \_/\_/\_/
+            )ART" << std::endl;
+            std::cout << "La creature est morte" << std::endl;
         }}
 
         int attaque(){return pa;}
