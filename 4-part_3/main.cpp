@@ -22,14 +22,14 @@ class Creature{
 
         void affiche(){
             if (estVivant()){
-            std::cout << R"ART(
+            std::cout << "\033[31m" << R"ART(
     .-"""-.
    / o   o \
   |   ___   |
   |  \___/  |
    \_/\_/\_/
             )ART" << std::endl;
-            std::cout << "PV : " << pv << ", PA : " << pa << ", NIV : " << niv << std::endl;
+            std::cout << "PV : " << pv << ", PA : " << pa << ", NIV : " << niv << "\033[0m" << std::endl;
         }else {
             std::cout << "La creature est mort" << std::endl;
         }}
@@ -87,17 +87,32 @@ class Hero{
 
 int main(){
     Hero h{50, 10, 8, "Hrun"};
-    Creature c{10, 10, 5};
+    Creature c{25, 10, 5};
+    int choix;
 
-    h.affiche();
-    c.affiche();
+    while (c.estVivant()){
+        h.affiche();
+        c.affiche();
 
-    int d = h.attaque();
-    c.subitDegat(d);
+        std::cout << std::endl << "Actions : " << std::endl << "\033[33m 1. Attaquer \033[0m" << std::endl << "\033[32m 2. Utilser une potion (degat x2)\033[0m" << std::endl;
+        std::cin >> choix;
 
-    d = c.attaque();
-    h.subitDegat(d);
+        switch (choix)
+        {
+        case 1:
+            c.subitDegat(h.attaque());
+            h.subitDegat(c.attaque());
+            break;
+        
+        case 2:
+            c.subitDegat(h.attaque()*2);
+            h.subitDegat(c.attaque());
+            break;
 
+        default:
+            break;
+        }
+    }
     h.affiche();
     c.affiche();
 
